@@ -4,8 +4,6 @@ from src.modules.inventory import Inventory
 from src.modules.fileHandler import FileHandler
 from src.utils.check_user_input import check_user_input
 
-
-
 # inventory_data = display_all()
 inventory = Inventory()
 fileHandler = FileHandler()
