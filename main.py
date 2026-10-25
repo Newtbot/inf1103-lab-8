@@ -94,14 +94,14 @@ while True:
             print("Inventory saved successfully to inventory.json.")
             fileHandler.save_data(inventory.products)
         
-        # elif check_user_input(user_option) == "6":
-        #     save_inventory(data_file, inventory_data)
-        #     print("Saving inventory before exit...")
-        #     print(f"Inventory saved successfully.\n")
-        #     print(
-        #         f"Thank you for using Inventory Management System.\n"
-        #         f"Program terminated.")
-        #     break
+        elif check_user_input(user_option) == "6":
+            fileHandler.save_data(inventory.products)
+            print("Saving inventory before exit...")
+            print(f"Inventory saved successfully.\n")
+            print(
+                f"Thank you for using Inventory Management System.\n"
+                f"Program terminated.")
+            break
 
         else:
             print("Please enter a valid integer. Eg. `1` ")
