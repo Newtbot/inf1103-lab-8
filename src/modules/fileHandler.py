@@ -35,8 +35,8 @@ class FileHandler:
                 pass
 
     # save data
-    def save_data(self, products: Inventory) -> None: 
-            data = [prod.to_dict() for prod in inventory.products]                                                                                                                                                                                                                             
+    def save_data(self, products: list) -> None: 
+            data = [prod.to_dict() for prod in products]                                                                                                                                                                                                                             
             with open(self.filepath, "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=4)
 

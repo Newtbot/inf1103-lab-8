@@ -82,24 +82,17 @@ while True:
 
         elif check_user_input(user_option) == "4":
             print("Search Stock")
-            product_item = search_product(inventory_data)
+            product_id = input("Product ID: ").strip().upper()
+            product_item = inventory.search_product(product_id)            
             if product_item:
-                print(
-                "--------------------------------------------------------\n"
-                f"ID: {product_item['id']}\n"
-                f"Name: {product_item['name']}\n"
-                f"Price: ${product_item['price']}\n"
-                f"Stock: {product_item['stock']}\n"
-                "--------------------------------------------------------"
-                )
+                product_item.display_information()
             else: 
                 print("Product not found")
-                
-        # elif check_user_input(user_option) == "5":
-        #     print("Saving inventory......")
-        #     print("Inventory saved successfully to inventory.json.")
-        #     save_inventory(data_file, inventory_data)
 
+        elif check_user_input(user_option) == "5":
+            print("Saving inventory......")
+            print("Inventory saved successfully to inventory.json.")
+            fileHandler.save_data(inventory.products)
         
         # elif check_user_input(user_option) == "6":
         #     save_inventory(data_file, inventory_data)
