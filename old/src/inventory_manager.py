@@ -20,52 +20,52 @@ def check_user_input(user_input):
     else:
         return "NaN"
 
-def load_inventory():
-    #check if checkfile is true if true read file or "load file"
-    if check_file(data_file):
-        with open(data_file, "r", encoding="utf-8") as file:
-            content = file.read()
-            return True
-    else:
-        #create file if check file is false
-        with open(data_file, "w", encoding="utf-8") as f:
-            pass
+# def load_inventory():
+#     #check if checkfile is true if true read file or "load file"
+#     if check_file(data_file):
+#         with open(data_file, "r", encoding="utf-8") as file:
+#             content = file.read()
+#             return True
+#     else:
+#         #create file if check file is false
+#         with open(data_file, "w", encoding="utf-8") as f:
+#             pass
 
-def display_all():
-    if check_file(data_file):
-        with open(data_file, "r", encoding="utf-8") as f:
-            data = json.load(f)
-            return data
-    else:
-        return "Error: Missing File"
+# def display_all():
+#     if check_file(data_file):
+#         with open(data_file, "r", encoding="utf-8") as f:
+#             data = json.load(f)
+#             return data
+#     else:
+#         return "Error: Missing File"
 
-def add_product(new_product: dict):
-    inventory_data.append(new_product)
-    print("Product added sucessfully!")
+# def add_product(new_product: dict):
+#     inventory_data.append(new_product)
+#     print("Product added sucessfully!")
 
-def update_stock(product_item: dict):
-    product_stock = int(input("New Stock Quantity: "))
-    product_item["stock"] = product_stock
-    print("Product updated sucessfully!")
+# def update_stock(product_item: dict):
+#     product_stock = int(input("New Stock Quantity: "))
+#     product_item["stock"] = product_stock
+#     print("Product updated sucessfully!")
 
-def search_product(inventory_data: list):
-    product_id = input("Enter Product ID: ").upper()
-    product_item = None
-    for item in inventory_data:
-        # Safely read the id, returns None if "id" is missing
-        if item.get("id") == product_id:
-            product_item = item
-            print("Product Found")
-            print(
-                f"Name: {item['name']}\n"
-                f"Stock: {item['stock']}\n"   
-                )
+# def search_product(inventory_data: list):
+#     product_id = input("Enter Product ID: ").upper()
+#     product_item = None
+#     for item in inventory_data:
+#         # Safely read the id, returns None if "id" is missing
+#         if item.get("id") == product_id:
+#             product_item = item
+#             print("Product Found")
+#             print(
+#                 f"Name: {item['name']}\n"
+#                 f"Stock: {item['stock']}\n"   
+#                 )
 
-    return product_item
+#     return product_item
 
-def save_inventory(data_file: str, inventory_data: list):
-        with open(data_file, "w", encoding="utf-8") as f:
-            json.dump(inventory_data, f, indent=4)
+# def save_inventory(data_file: str, inventory_data: list):
+#         with open(data_file, "w", encoding="utf-8") as f:
+#             json.dump(inventory_data, f, indent=4)
 
 
 inventory_data = display_all()

@@ -44,14 +44,24 @@ class Product:
         self.__price = price
         self.__stock = stock
 
+    def get_id(self) ->  str: 
+        return self.__product_id
     #methods go here
     def update_stock(self, quantity: int) -> None:
-        if self.product_stock < 0:
+        if self.__stock < 0:
             print("Product Quantity cannot be 0 or negative number.")
-        self.product_stock+= quantity
+        self.__stock = quantity
 
     # once __init__ finsihes it will destroy name price etc. hence we must use self_ .. to access the var
     def display_information(self) -> None: 
         print(
                 f"ID: {self.__product_id} | Name: {self.__name} | Price: ${self.__price:.2f} | Stock: {self.__stock}"
             )
+                                                                                                                                                                                                                                                                                           
+    def to_dict(self) -> dict:                                                                                                                                                                                                                                                         
+        return {                                                                                                                                                                                                                                                                       
+                "id": self.__product_id,                                                                                                                                                                                                                                                   
+                "name": self.__name,                                                                                                                                                                                                                                                       
+                "price": self.__price,                                                                                                                                                                                                                                                     
+                "stock": self.__stock,                                                                                                                                                                                                                                                     
+            } 
